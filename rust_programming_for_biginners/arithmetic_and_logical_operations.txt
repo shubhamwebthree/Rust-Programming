@@ -1,0 +1,13 @@
+fn main() {
+    let books_counted: i32 = 17;
+    let magazines_counted: i32 = 3;
+    let research_papers_found: bool = false;
+
+    // TODO: Calculate the total number of items in our library.
+    let total_items :i32 = books_counted + magazines_counted;
+    println!("Total items in the library: {}", total_items);
+    
+    // TODO: Use a logical AND operation to check if:
+    let found_books_and_papers: bool =  total_items > 15 && research_papers_found;
+    println!("Found more than 15 books and research papers: {}", found_books_and_papers);
+}

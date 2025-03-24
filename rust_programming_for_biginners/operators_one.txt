@@ -1,0 +1,13 @@
+fn main() {
+    // TODO: Assign the distance to the harbor (40,000 meters) to a variable
+    let harbor : u32 = 40000;
+    // TODO: Assign the distance to the archipelago (120,000 meters) to another variable
+    let archipelago: u32 = 120000;
+    // TODO: Compare the distance to the harbor to see if it's less than 500,000 meters
+    let check_distance_to_harbor : bool = 500000 > harbor;
+    // TODO: Check if the distance to the archipelago is greater than the distance to the harbor
+    let is_archipelago_farther : bool = archipelago > harbor;
+    // TODO: Print results of these two comparisons to the console
+    println!("distance to the harbor is less than {}", check_distance_to_harbor);
+    println!("distance to the archipelago is greater than the distance to the harbor{}",is_archipelago_farther);
+}

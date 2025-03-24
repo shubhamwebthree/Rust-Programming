@@ -1,0 +1,39 @@
+//if-else statements and match statements
+
+fn main() {
+    let temperature = 15; // Temperature in Celsius
+    let weather;
+
+    // Determine weather based on temperature
+    if temperature > 30 {
+        weather = "Hot";
+    } else if temperature > 15 {
+        weather = "Warm";
+    } else if temperature > 0 {
+        weather = "Chilly";
+    } else {
+        weather = "Cold";
+    }
+
+    println!("The weather is: {}", weather);
+}
+
+-------------------------------------------------------------------
+
+fn main() {
+    let rainfall = 4; // Rainfall amount on a scale from 0 to 5
+
+    // Using a match expression to handle actions depending on rainfall level
+    match rainfall {
+        0 => println!("No umbrella needed, clear skies!"),
+        1 => println!("Slight chance of drizzle, carry a pocket umbrella maybe."),
+        2 => println!("Moderate rain, don't forget your umbrella!"),
+        3 => println!("Heavy rain, make sure to wear waterproof gear!"),
+        _ => println!("Extreme conditions! Stay indoors if possible!")
+
+    }
+}
+
+-------------------------------------------------------------------
+
+

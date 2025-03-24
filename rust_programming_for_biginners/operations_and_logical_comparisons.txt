@@ -1,0 +1,14 @@
+fn main() {
+    // TODO: Declare and initialize variables for battery capacity (15,000 mAh), power consumption (120 mAh/hour), and patrol duration (2 hours)
+    let battery_capacity : i32 = 15000;
+    let power_consumption : i32 = 120;
+    let patrol_duration : i32 = 2;
+
+    // TODO: Calculate the remaining power after the patrol
+    let remaining_power: i32 = battery_capacity - (power_consumption * patrol_duration);
+    // TODO: Use a logical operation to determine if the remaining power is more than half of the battery capacity
+    let enough_power: bool = remaining_power > (battery_capacity / 2);
+    // TODO: Print out the result in a format: "Enough power for another round? true/false"
+    println!("Enough power for another round? {}", enough_power);
+
+}

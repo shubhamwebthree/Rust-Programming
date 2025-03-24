@@ -1,0 +1,12 @@
+// TODO: Define a function to calculate the area of a field.
+// This function should accept 2 arguments for length and width and return the calculated area as a float.
+fn area_of_field(length:f32, width:f32) ->f32{
+    let area_of_rectangle = length * width;
+    return area_of_rectangle
+}
+
+fn main() {
+    // TODO: Call your function with values for length and width and print the result
+    let result= area_of_field(25.5,32.5);
+    println!("The are of the field is {}", result);
+}

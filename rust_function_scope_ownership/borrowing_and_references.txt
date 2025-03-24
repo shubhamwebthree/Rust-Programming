@@ -1,0 +1,97 @@
+Borrowing Immutable References: How to access variables without transferring ownership.
+Borrowing Mutable References: How to modify data through references without ownership changes.
+Rules of Mutable References: The constraints Rust imposes to ensure safe modifications.
+Dangling References: How Rust prevents pointers to non-existent objects and ensures memory safety.
+
+-----------------------------------------------------------------------------
+Borrowing Immutable References
+Rust defaults to transferring a variable's ownership when it's passed to a function. If we want to pass a variable to a function without transferring ownership, Rust uses the borrowing mechanism. To do this, the function signature declares its input as a reference (in this case s: &String). To call the function, pass a reference to a variable (in this case &title).
+
+
+fn main() {
+    let title = String::from("Rust Programming");  // Here, we declare a new String variable title
+    borrow_reference(&title);  // We then create a reference to it and pass it to borrow_reference
+    println!("I still own the book {}", title);  // Prints "I still own the book Rust Programming"
+}
+    
+fn borrow_reference(s: &String) {  // borrow_reference takes a reference to a String
+    println!("I am borrowing {}", s);  // Prints: I am borrowing "Rust Programming"
+}  // Note, we only have a reference to s, so the owner doesn't change
+-----------------------------------------------------------------------------
+fn main() {
+    let book_title = String::from("Rust Programming Basics");
+
+    borrow_book(&book_title);  // Borrow the title without transferring ownership
+    println!("The library still owns: {}", book_title);  // Ownership of book_title remains with the library
+
+    let mut mutable_title = String::from("Learn ");
+    edit_title(&mut mutable_title);  // Mutably borrow to modify the title
+    println!("Updated title: {}", mutable_title); // The modified title
+}
+
+fn borrow_book(title: &String) {
+    println!("Currently borrowed: {}", title);  // Just borrowing, nothing modified
+}
+
+fn edit_title(title: &mut String) {
+    title.push_str("Rust Programming");  // Modify the title by appending to it
+}
+-----------------------------------------------------------------------------------
+fn main() {
+    let mut book_title = String::from("Rust Book");
+    borrow_book(&book_title); 
+    // TODO: properly call the function to update the book title
+    update_book_title(&mut book_title);
+    println!("Updated book title: {}", book_title);
+    
+}
+
+fn borrow_book(title: &String) {
+    println!("Borrowing book: {}", title);
+}
+
+fn update_book_title(title: &mut String) {
+    // TODO: Implement the function to update the book title
+    title.push_str(" Chapter - 2");
+    }
+--------------------------------------------------------------------------------------
+fn main() {
+    let mut books = String::from("The Rust Book, Rust Programming, Programming in Rust");
+    manage_books(&mut books);
+    println!("Updated books: {}", books);
+}
+
+fn manage_books(book_list: &mut String) {
+    book_list.push_str(", The Art of Rust");
+}
+----------------------------------------------------------------------------------------
+fn main() {
+    let book_title = get_book_title();
+    println!("{}", book_title);  
+}
+
+fn get_book_title() -> &String {
+    let book = String::from("Rust Book");  
+    &book  
+} 
+Can you identify and fix the error in the starter code to ensure it compiles and runs correctly?
+remove &
+
+-----------------------------------------------------------------------------
+// TODO: Write a function that takes a reference to a String and prints it
+fn reference_function(title: &String){
+    println!("reference_function {}", title);
+}
+
+fn main() {
+    // TODO: Create a new String variable named book_title
+    let book_title = String::from("String Variable");
+
+    // TODO: Borrow the book_title using the function
+    reference_function(&book_title);
+
+    // TODO: Print the book_title to show that ownership is retained
+    println!("the owner of this book is : {}",book_title);
+}
+-------------------------------------------------------------------------------------------
+
